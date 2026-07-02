@@ -44,11 +44,42 @@ jobs:
             resume-minimal.tex
             resume-compact.tex
 
-      - name: Assemble site
+      - name: Assemble site (+ inject JSON-LD from resume.json)
         run: |
           mkdir -p site
           cp resume.pdf resume-modern.pdf resume-minimal.pdf resume-compact.pdf site/
+          cp resume.json site/resume.json
           cp .github/pages/index.html site/index.html
+          python3 - <<'PY'
+          import json
+          r = json.load(open("resume.json"))
+          b = r["basics"]
+          loc = b.get("location", {})
+          person = {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": b["name"],
+            "jobTitle": b.get("label"),
+            "email": "mailto:" + b.get("email", ""),
+            "url": b.get("url"),
+            "description": b.get("summary"),
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": loc.get("city"),
+              "addressRegion": loc.get("region"),
+              "addressCountry": loc.get("countryCode"),
+            },
+            "sameAs": [p["url"] for p in b.get("profiles", [])],
+            "alumniOf": [{"@type": "CollegeOrUniversity", "name": e["institution"]} for e in r.get("education", [])],
+            "worksFor": {"@type": "Organization", "name": r["work"][0]["name"]} if r.get("work") else None,
+            "knowsAbout": [k for s in r.get("skills", []) for k in s.get("keywords", [])],
+            "knowsLanguage": [l["language"] for l in r.get("languages", [])],
+          }
+          block = '<script type="application/ld+json">\n' + json.dumps(person, indent=2) + '\n</script>'
+          html = open("site/index.html").read().replace("<!--JSONLD-->", block, 1)
+          open("site/index.html", "w").write(html)
+          print("Injected JSON-LD for", b["name"])
+          PY
 
       - name: Publish to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4

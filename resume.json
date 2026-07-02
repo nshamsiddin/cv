@@ -1,0 +1,90 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Shamsiddin Nabiev",
+    "label": "Senior Software Engineer",
+    "email": "shamsiddin@live.ru",
+    "url": "https://nshamsiddin.github.io/cv/",
+    "summary": "Senior software engineer with 5+ years building real-time, cloud-native data platforms — Apache Flink stream processing on AWS, with full-stack and observability depth. Two MSc degrees (Software Engineering, AI).",
+    "location": { "city": "Dublin", "region": "Ireland", "countryCode": "IE" },
+    "profiles": [
+      { "network": "LinkedIn", "username": "nshamsiddin", "url": "https://www.linkedin.com/in/nshamsiddin" },
+      { "network": "GitHub", "username": "nshamsiddin", "url": "https://github.com/nshamsiddin" }
+    ]
+  },
+  "work": [
+    {
+      "name": "Autodesk",
+      "position": "Senior Software Engineer",
+      "location": "Dublin, Ireland",
+      "startDate": "2026-04",
+      "highlights": [
+        "Design and operate Apache Flink streaming applications for a real-time change-data-capture (CDC) data platform on AWS (Managed Flink, Kafka/MSK, Kinesis), powering producer and consumer pipelines across the org.",
+        "Led full-chain distributed tracing with OpenTelemetry and Dynatrace, propagating trace context through Flink operators to close observability gaps and cut incident-diagnosis time.",
+        "Contribute reusable connectors, operators, and instrumentation to shared Flink platform libraries used across multiple producer/consumer applications."
+      ]
+    },
+    {
+      "name": "Autodesk",
+      "position": "Software Development Engineer",
+      "location": "Dublin, Ireland",
+      "startDate": "2021-12",
+      "endDate": "2026-04",
+      "highlights": [
+        "Built high-throughput streaming pipelines in Java on Apache Flink, integrating Kafka (MSK) and Amazon Kinesis for real-time change-data-capture and delivery.",
+        "Authored Terraform infrastructure-as-code for Managed Flink and Kafka; owned CI/CD via Jenkins, Spinnaker, Docker, and an internal Kubernetes platform.",
+        "Developed a Spring Boot control-plane service orchestrating Kafka resource provisioning (backed by DynamoDB), plus event-driven Node.js services and React/TypeScript front-ends.",
+        "Diagnosed and fixed production issues in stateful streaming jobs (serialization, checkpointing, performance); maintained rigorous test coverage with JUnit, Mockito, and JaCoCo."
+      ]
+    },
+    {
+      "name": "Autodesk",
+      "position": "Software Engineer Intern",
+      "location": "Dublin, Ireland",
+      "startDate": "2021-03",
+      "endDate": "2021-11",
+      "highlights": [
+        "Built full-stack features with Java, Spring Boot, Node.js, React, and Svelte; created modular Node.js services and used Docker and Jenkins for streamlined delivery."
+      ]
+    },
+    {
+      "name": "VEON",
+      "position": "Software Developer",
+      "location": "Tashkent, Uzbekistan",
+      "startDate": "2018-08",
+      "endDate": "2019-08",
+      "highlights": [
+        "Built microservices and full-stack applications with Node.js, Spring Boot, and MongoDB, collaborating cross-functionally on design, implementation, and integration."
+      ]
+    },
+    {
+      "name": "VEON",
+      "position": "Data Platforms & Billing Systems",
+      "location": "Tashkent, Uzbekistan",
+      "startDate": "2015-11",
+      "endDate": "2018-07",
+      "highlights": [
+        "Delivered big-data analytics and targeted-marketing platforms; administered mission-critical billing systems with Bash, SQL, Perl, Python, and Oracle SQL on Linux, automating tasks and resolving performance issues."
+      ]
+    }
+  ],
+  "education": [
+    { "institution": "Maynooth University", "studyType": "MSc", "area": "Computer Software Engineering", "startDate": "2020", "endDate": "2021" },
+    { "institution": "University of St Andrews", "studyType": "MSc", "area": "Artificial Intelligence", "startDate": "2019", "endDate": "2020" },
+    { "institution": "Politecnico di Torino", "studyType": "BSc", "area": "Computer Engineering", "startDate": "2011", "endDate": "2015" }
+  ],
+  "skills": [
+    { "name": "Languages", "keywords": ["Java", "TypeScript", "JavaScript", "Python", "SQL", "Bash"] },
+    { "name": "Streaming & Messaging", "keywords": ["Apache Flink", "Managed Flink / KDA", "Apache Kafka (MSK)", "Amazon Kinesis", "change-data-capture", "event-driven", "serverless"] },
+    { "name": "Backend", "keywords": ["Spring Boot", "Node.js", "DynamoDB", "MongoDB", "REST APIs"] },
+    { "name": "Cloud & Infra", "keywords": ["AWS", "Terraform", "Docker", "Kubernetes", "Jenkins", "Spinnaker", "CI/CD", "Linux"] },
+    { "name": "Observability", "keywords": ["OpenTelemetry", "Dynatrace", "distributed tracing", "metrics"] },
+    { "name": "Frontend & Testing", "keywords": ["React", "Svelte", "JUnit 5", "Mockito", "JaCoCo"] }
+  ],
+  "languages": [
+    { "language": "Russian", "fluency": "Native" },
+    { "language": "Uzbek", "fluency": "Native" },
+    { "language": "English", "fluency": "Professional working" },
+    { "language": "Turkish", "fluency": "Basic" }
+  ]
+}

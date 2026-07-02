@@ -18,6 +18,7 @@ Layouts: [Classic](https://nshamsiddin.github.io/cv/resume.pdf) ·
 |------|------|---------------|
 | [`resume.tex`](resume.tex) | **Content (data)** — pure `\job{}{}{}`, `\skill{}{}`, `\edu{}{}{}` calls, no styling | you change what the resume *says* |
 | [`cv.cls`](cv.cls) | **Template** — all layout, colors, fonts, spacing, and the semantic commands | you change how it *looks* |
+| [`resume.json`](resume.json) | **Machine-readable** ([JSON Resume](https://jsonresume.org) schema) — feeds schema.org JSON-LD on the site so AI/ATS/recruiter tools parse you cleanly | keep in sync with `resume.tex` |
 
 The PDF is built automatically by GitHub Actions — you never edit or commit it by hand.
 
