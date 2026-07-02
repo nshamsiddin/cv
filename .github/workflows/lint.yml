@@ -1,8 +1,10 @@
-name: Proofread (textidote)
+name: Spell check
 
-# Advisory spell + style check on the resume prose. Runs textidote (a
-# LaTeX-aware checker) over resume.tex and uploads an HTML report. It never
-# fails the build — flags are suggestions to review, not errors.
+# Advisory spell check on the RENDERED resume text (not the LaTeX source, which
+# would trip on custom macros). Compiles the PDF, extracts its text, and lists
+# any word that is neither in the English dictionary nor in dict.txt (the
+# project allowlist of names / tech terms). Never fails the build — the list is
+# for you to eyeball for typos.
 
 on:
   push:
@@ -12,34 +14,31 @@ on:
   workflow_dispatch:
 
 jobs:
-  textidote:
+  spell:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
+      - name: Compile resume.tex -> resume.pdf
+        uses: xu-cheng/latex-action@v3
         with:
-          distribution: temurin
-          java-version: '17'
+          root_file: resume.tex
 
-      - name: Run textidote
+      - name: Spell-check rendered text
         run: |
-          curl -sL -o textidote.jar \
-            https://github.com/sylvainhalle/textidote/releases/latest/download/textidote.jar
-          # --dict: allow domain vocabulary (Flink, Kinesis, ...) so tech terms
-          # aren't flagged as misspellings.
-          # --ignore: rules that misfire on dotted tech names / degree abbrevs.
-          OPTS="--check en --dict dict.txt --ignore sh:d:002,lt:en:BACHELOR_ABBR"
-          # HTML report (artifact) — exit code is the warning count, so don't fail.
-          java -jar textidote.jar $OPTS --output html resume.tex > textidote-report.html || true
-          # Human-readable summary in the run log.
-          java -jar textidote.jar $OPTS resume.tex || true
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils aspell aspell-en
+          pdftotext resume.pdf - \
+            | aspell --lang=en --mode=none list \
+            | sort -u \
+            | grep -vixFf dict.txt > unknown-words.txt || true
+          echo "=== Words not in the dictionary or dict.txt (review for typos) ==="
+          if [ -s unknown-words.txt ]; then cat unknown-words.txt; else echo "(none)"; fi
 
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: textidote-report
-          path: textidote-report.html
+          name: spell-report
+          path: unknown-words.txt
           if-no-files-found: warn
