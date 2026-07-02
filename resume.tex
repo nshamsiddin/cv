@@ -1,0 +1,129 @@
+%==============================================================================
+%  Shamsiddin Nabiev — Resume (single-column, ATS-friendly)
+%  Compiles with pdfLaTeX (GitHub Actions / latex-action) and tectonic.
+%  No fontawesome / no external .cls — only standard TeX Live packages.
+%  Source uses ASCII LaTeX commands only (---, \textperiodcentered) so it
+%  builds identically under pdfLaTeX and XeTeX.
+%==============================================================================
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1.35cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+% ---- Colors ------------------------------------------------------------------
+\definecolor{ink}{HTML}{111418}
+\definecolor{accent}{HTML}{0B3D63}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{rule}{HTML}{C9CED6}
+\color{ink}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent,
+  pdftitle={Shamsiddin Nabiev -- Senior Software Engineer}, pdfauthor={Shamsiddin Nabiev}}
+
+% ---- Layout ------------------------------------------------------------------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.03}
+\newcommand{\dt}{\textcolor{rule}{\ \textbar\ }}          % contact separator
+\newcommand{\md}{\,\textperiodcentered\,}                  % middot
+
+% Section headings: bold small-caps + accent rule
+\titleformat{\section}{\normalsize\bfseries\scshape\color{accent}}
+  {}{0em}{}[\vspace{1pt}{\color{rule}\titlerule[1pt]}]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+
+\newlist{tight}{itemize}{1}
+\setlist[tight]{leftmargin=1.25em, topsep=2pt, partopsep=0pt, itemsep=2pt,
+  parsep=0pt, label=\textcolor{accent}{\small$\bullet$}}
+
+% Experience entry: bold role -- accent company, right-aligned muted dates
+\newcommand{\job}[3]{%
+  \smallskip\noindent\textbf{#1}~\textcolor{accent}{\textbf{--- #2}}%
+  \hfill{\footnotesize\textcolor{muted}{#3}}\par\vspace{1pt}}
+
+% Education row: bold degree -- school, right-aligned dates
+\newcommand{\edu}[3]{%
+  \noindent\textbf{#1} \textcolor{ink}{--- #2}%
+  \hfill{\footnotesize\textcolor{muted}{#3}}\par\vspace{2pt}}
+
+%==============================================================================
+\begin{document}
+
+% ---- Header ------------------------------------------------------------------
+{\Huge\bfseries\color{accent}Shamsiddin Nabiev}\\[3pt]
+{\large\bfseries\color{ink!80}Senior Software Engineer \textperiodcentered\ Java / Real-Time Data}\\[5pt]
+\small
+\href{mailto:shamsiddin@live.ru}{shamsiddin@live.ru}\dt
+\href{https://www.linkedin.com/in/nshamsiddin}{linkedin.com/in/nshamsiddin}\dt
+\href{https://github.com/nshamsiddin}{github.com/nshamsiddin}\dt
+Dublin, Ireland
+\\[4pt]
+\textbf{5+ years} building real-time, cloud-native data platforms --- Apache Flink stream
+processing on AWS, with full-stack and observability depth. Two MSc degrees (Software
+Engineering, AI).
+\normalsize
+\vspace{2pt}
+{\color{accent}\hrule height 1.5pt}
+
+% ---- Skills ------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\hspace{0pt}}p{3.5cm} X@{}}
+  Languages            & Java (expert), TypeScript / JavaScript, Python, SQL, Bash \\[2pt]
+  Streaming \& Messaging & Apache Flink (Managed Flink / KDA), Apache Kafka (MSK), Amazon Kinesis, change-data-capture, event-driven \& serverless \\[2pt]
+  Backend              & Spring Boot, Node.js, DynamoDB, MongoDB, REST APIs \\[2pt]
+  Cloud \& Infra        & AWS, Terraform (IaC), Docker, Kubernetes, Jenkins, Spinnaker, CI/CD, Linux \\[2pt]
+  Observability        & OpenTelemetry, Dynatrace, distributed tracing, metrics \\[2pt]
+  Frontend \& Testing   & React, Svelte; JUnit 5, Mockito, JaCoCo \\
+\end{tabularx}
+
+% ---- Experience --------------------------------------------------------------
+\section{Experience}
+
+\job{Senior Software Engineer}{Autodesk}{Apr 2026 -- Present \md Dublin}
+\begin{tight}
+  \item Design and operate \textbf{Apache Flink} streaming applications for a real-time \textbf{change-data-capture (CDC) data platform} on AWS (Managed Flink, \textbf{Kafka/MSK}, Kinesis), powering producer and consumer pipelines across the org.
+  \item Led \textbf{full-chain distributed tracing} with \textbf{OpenTelemetry and Dynatrace}, propagating trace context through Flink operators to close observability gaps and cut incident-diagnosis time.
+  \item Contribute reusable connectors, operators, and instrumentation to \textbf{shared Flink platform libraries} used across multiple producer/consumer applications.
+\end{tight}
+
+\job{Software Development Engineer}{Autodesk}{Dec 2021 -- Apr 2026 \md Dublin}
+\begin{tight}
+  \item Built high-throughput streaming pipelines in \textbf{Java on Apache Flink}, integrating \textbf{Kafka (MSK)} and \textbf{Amazon Kinesis} for real-time change-data-capture and delivery.
+  \item Authored \textbf{Terraform} infrastructure-as-code for Managed Flink and Kafka; owned \textbf{CI/CD} via Jenkins, Spinnaker, Docker, and an internal Kubernetes platform.
+  \item Developed a \textbf{Spring Boot control-plane service} orchestrating Kafka resource provisioning (backed by DynamoDB), plus event-driven \textbf{Node.js} services and \textbf{React/TypeScript} front-ends.
+  \item Diagnosed and fixed production issues in \textbf{stateful streaming jobs} (serialization, checkpointing, performance); maintained rigorous test coverage with JUnit, Mockito, and JaCoCo.
+\end{tight}
+
+\job{Software Engineer Intern}{Autodesk}{Mar 2021 -- Nov 2021 \md Dublin}
+\begin{tight}
+  \item Built full-stack features with \textbf{Java, Spring Boot, Node.js, React, and Svelte}; created modular Node.js services and used Docker and Jenkins for streamlined delivery.
+\end{tight}
+
+\job{Software Developer}{VEON}{Aug 2018 -- Aug 2019 \md Tashkent}
+\begin{tight}
+  \item Built \textbf{microservices and full-stack applications} with Node.js, Spring Boot, and MongoDB, collaborating cross-functionally on design, implementation, and integration.
+\end{tight}
+
+\job{Data Platforms \& Billing Systems}{VEON}{Nov 2015 -- Jul 2018 \md Tashkent}
+\begin{tight}
+  \item Delivered \textbf{big-data analytics and targeted-marketing platforms}; administered mission-critical \textbf{billing systems} with Bash, SQL, Perl, Python, and Oracle SQL on Linux, automating tasks and resolving performance issues.
+\end{tight}
+
+% ---- Education ---------------------------------------------------------------
+\section{Education}
+\edu{MSc, Computer Software Engineering}{Maynooth University}{2020 -- 2021}
+\edu{MSc, Artificial Intelligence}{University of St Andrews}{2019 -- 2020}
+\edu{BSc, Computer Engineering}{Politecnico di Torino}{2011 -- 2015}
+
+% ---- Languages ---------------------------------------------------------------
+\section{Languages}
+Russian (native) \md Uzbek (native) \md English (professional working) \md Turkish (basic)
+
+\end{document}

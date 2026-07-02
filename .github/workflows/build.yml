@@ -1,0 +1,44 @@
+name: Build resume PDF
+
+# Build the PDF from resume.tex.
+#   - On every push to main / PR: compile and upload the PDF as a workflow
+#     artifact (a build check — catches LaTeX errors before you tag).
+#   - On a version tag (v1.0, v1.1, ...): also attach the PDF to a GitHub Release.
+#   - Manually via the "Run workflow" button (workflow_dispatch).
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # required to create/attach Releases
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile resume.tex -> resume.pdf
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+
+      - name: Upload PDF as build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdf
+          path: resume.pdf
+          if-no-files-found: error
+
+      - name: Attach PDF to Release (tags only)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: resume.pdf
+          generate_release_notes: true
