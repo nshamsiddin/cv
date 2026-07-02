@@ -9,11 +9,44 @@
 %==============================================================================
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cv}[2026/07/02 Single-column ATS-friendly resume class]
+
+% ---- Font selection ----------------------------------------------------------
+% Pick the typeface with a class option in resume.tex, e.g.
+%     \documentclass[charter]{cv}
+% All options ship with TeX Live and work with the pdfLaTeX CI build:
+%     lmodern    Latin Modern serif ....... (default)
+%     charter    XCharter serif ........... clean, very ATS-friendly
+%     palatino   Palatino-style serif ..... (newpx)
+%     times      Times-style serif ........ (newtx)
+%     helvet     Helvetica-style sans
+%     sourcesans Source Sans (sans) ....... closest to the web/Inter look
+%     lato       Lato (sans)
+\newcommand{\cv@font}{lmodern}
+\DeclareOption{lmodern}{\renewcommand{\cv@font}{lmodern}}
+\DeclareOption{charter}{\renewcommand{\cv@font}{charter}}
+\DeclareOption{palatino}{\renewcommand{\cv@font}{palatino}}
+\DeclareOption{times}{\renewcommand{\cv@font}{times}}
+\DeclareOption{helvet}{\renewcommand{\cv@font}{helvet}}
+\DeclareOption{sourcesans}{\renewcommand{\cv@font}{sourcesans}}
+\DeclareOption{lato}{\renewcommand{\cv@font}{lato}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+
 \LoadClass[letterpaper,10pt]{article}
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{lmodern}
+\RequirePackage{etoolbox}
+
+% Load the chosen font family (no math packages needed — see \textbullet below)
+\ifdefstring{\cv@font}{lmodern}{\RequirePackage{lmodern}}{}
+\ifdefstring{\cv@font}{charter}{\RequirePackage{XCharter}}{}
+\ifdefstring{\cv@font}{palatino}{\RequirePackage{newpxtext}}{}
+\ifdefstring{\cv@font}{times}{\RequirePackage{newtxtext}}{}
+\ifdefstring{\cv@font}{helvet}{\RequirePackage{helvet}\renewcommand{\familydefault}{\sfdefault}}{}
+\ifdefstring{\cv@font}{sourcesans}{\RequirePackage[default]{sourcesanspro}}{}
+\ifdefstring{\cv@font}{lato}{\RequirePackage[default]{lato}}{}
+
 \RequirePackage[margin=1.35cm]{geometry}
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
@@ -46,7 +79,7 @@
 % Bullet list used inside jobs
 \newlist{tight}{itemize}{1}
 \setlist[tight]{leftmargin=1.25em, topsep=2pt, partopsep=0pt, itemsep=2pt,
-  parsep=0pt, label=\textcolor{accent}{\small$\bullet$}}
+  parsep=0pt, label=\textcolor{accent}{\small\textbullet}}
 
 % ---- Header commands ---------------------------------------------------------
 \newcommand{\name}[1]{{\Huge\bfseries\color{accent}#1}\\[3pt]}

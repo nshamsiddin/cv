@@ -11,6 +11,29 @@ Senior Software Engineer · Java / Real-Time Data · Dublin, Ireland
 
 The PDF is built automatically by GitHub Actions — you never edit or commit it by hand.
 
+### Change the font
+
+The typeface is a **class option** on the first line of `resume.tex`:
+
+```latex
+\documentclass[charter]{cv}   % <- swap the option
+```
+
+Available options (all ship with TeX Live, so the CI build just works):
+
+| Option | Style | Notes |
+|--------|-------|-------|
+| `lmodern` | serif | default |
+| `charter` | serif | clean, very ATS-friendly |
+| `palatino` | serif | Palatino-style |
+| `times` | serif | Times-style |
+| `helvet` | sans | Helvetica-style |
+| `sourcesans` | sans | closest to a modern web look |
+| `lato` | sans | Lato |
+
+To use a font that isn't in TeX Live (e.g. Inter), the build must switch to XeLaTeX +
+`fontspec` with the font vendored into the repo — ask if you want that.
+
 ## Workflow
 
 1. Edit `resume.tex`.
