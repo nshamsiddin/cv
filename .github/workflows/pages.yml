@@ -6,12 +6,8 @@ name: Publish to GitHub Pages
 #   /resume.pdf  -> the PDF itself (stable URL for applications)
 
 on:
-  # Manual-only until GitHub Pages is enabled for this repo.
-  # Pages on the free plan requires a PUBLIC repo; once the repo is public and
-  # Pages is enabled (Settings -> Pages -> Source: GitHub Actions), re-add:
-  #   push:
-  #     branches: [main]
-  # so the site auto-publishes on every push.
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -40,6 +36,11 @@ jobs:
           mkdir -p site
           cp resume.pdf site/resume.pdf
           cp .github/pages/index.html site/index.html
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
