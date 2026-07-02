@@ -3,62 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shamsiddin Nabiev — Resume</title>
-<meta name="description" content="Shamsiddin Nabiev — Senior Software Engineer, Java / Real-Time Data. Latest resume.">
+<title>Shamsiddin Nabiev — Senior Software Engineer</title>
+<meta name="description" content="Shamsiddin Nabiev — Senior Software Engineer (Java / real-time data). Resume, projects, and links.">
+<!-- Open Graph (link unfurls nicely when shared) -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Shamsiddin Nabiev — Senior Software Engineer">
+<meta property="og:description" content="Java / real-time data · Apache Flink on AWS · Dublin, Ireland">
+<meta property="og:url" content="https://nshamsiddin.github.io/cv/">
+<!-- JSON-LD structured data is injected here from resume.json at build time -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Shamsiddin Nabiev",
+  "jobTitle": "Senior Software Engineer",
+  "email": "mailto:shamsiddin@live.ru",
+  "url": "https://nshamsiddin.github.io/cv/",
+  "description": "Senior software engineer with 5+ years building real-time, cloud-native data platforms \u2014 Apache Flink stream processing on AWS, with full-stack and observability depth. Two MSc degrees (Software Engineering, AI).",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dublin",
+    "addressRegion": "Ireland",
+    "addressCountry": "IE"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/nshamsiddin",
+    "https://github.com/nshamsiddin"
+  ],
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Maynooth University"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "University of St Andrews"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Politecnico di Torino"
+    }
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Autodesk"
+  },
+  "knowsAbout": [
+    "Java",
+    "TypeScript",
+    "JavaScript",
+    "Python",
+    "SQL",
+    "Bash",
+    "Apache Flink",
+    "Managed Flink / KDA",
+    "Apache Kafka (MSK)",
+    "Amazon Kinesis",
+    "change-data-capture",
+    "event-driven",
+    "serverless",
+    "Spring Boot",
+    "Node.js",
+    "DynamoDB",
+    "MongoDB",
+    "REST APIs",
+    "AWS",
+    "Terraform",
+    "Docker",
+    "Kubernetes",
+    "Jenkins",
+    "Spinnaker",
+    "CI/CD",
+    "Linux",
+    "OpenTelemetry",
+    "Dynatrace",
+    "distributed tracing",
+    "metrics",
+    "React",
+    "Svelte",
+    "JUnit 5",
+    "Mockito",
+    "JaCoCo"
+  ],
+  "knowsLanguage": [
+    "Russian",
+    "Uzbek",
+    "English",
+    "Turkish"
+  ]
+}
+</script>
 <style>
-  :root { color-scheme: light dark; }
-  * { margin: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-    background: #0d1b2a; color: #e6eaf0;
-    min-height: 100vh; display: flex; flex-direction: column;
-  }
-  header {
-    padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 8px 20px;
-    align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.12);
-  }
-  h1 { font-size: 1.25rem; font-weight: 700; }
-  .role { color: #38bdf8; font-weight: 600; font-size: .95rem; }
-  nav { margin-left: auto; display: flex; gap: 14px; align-items: center; font-size: .9rem; }
-  a { color: #7cc7f5; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .dl {
-    background: #38bdf8; color: #0d1b2a; padding: 7px 15px; border-radius: 7px;
-    font-weight: 600; text-decoration: none;
-  }
-  .dl:hover { background: #5cc9fb; text-decoration: none; }
-  .viewer { flex: 1; border: 0; width: 100%; min-height: 78vh; background: #fff; }
-  .gallery {
-    padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
-    border-top: 1px solid rgba(255,255,255,.12); font-size: .85rem;
-  }
-  .gallery .label { color: #94a3b8; margin-right: 4px; }
-  .gallery a {
-    border: 1px solid rgba(124,199,245,.35); border-radius: 6px; padding: 4px 11px; color: #7cc7f5;
-  }
-  .gallery a:hover { background: rgba(56,189,248,.12); text-decoration: none; }
-  footer { padding: 10px 24px; font-size: .8rem; color: #94a3b8; }
-  footer a { color: #94a3b8; text-decoration: underline; }
+  :root { color-scheme: dark; --bg:#0d1b2a; --panel:#12263b; --ink:#e6eaf0; --muted:#94a3b8; --accent:#38bdf8; --line:rgba(255,255,255,.12); }
+  * { margin:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif; background:var(--bg); color:var(--ink); line-height:1.55; }
+  a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+  .wrap { max-width:960px; margin:0 auto; padding:0 24px; }
+  header.hero { padding:64px 0 40px; border-bottom:1px solid var(--line); }
+  .hero h1 { font-size:2.6rem; font-weight:700; letter-spacing:.3px; }
+  .hero .title { color:var(--accent); font-weight:600; font-size:1.15rem; margin-top:6px; }
+  .hero p { color:#cbd5e1; margin-top:14px; max-width:70ch; }
+  .actions { margin-top:22px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .btn { border:1px solid var(--line); border-radius:8px; padding:9px 16px; font-weight:600; color:var(--ink); }
+  .btn:hover { background:rgba(255,255,255,.06); text-decoration:none; }
+  .btn.primary { background:var(--accent); color:var(--bg); border-color:var(--accent); }
+  .btn.primary:hover { background:#5cc9fb; }
+  section { padding:40px 0; border-bottom:1px solid var(--line); }
+  h2 { font-size:1.35rem; margin-bottom:6px; }
+  .sub { color:var(--muted); margin-bottom:20px; }
+  .gallery { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
+  .chip { border:1px solid rgba(56,189,248,.35); border-radius:20px; padding:5px 14px; font-size:.9rem; }
+  .viewer { width:100%; height:70vh; border:1px solid var(--line); border-radius:10px; background:#fff; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:20px; }
+  .card h3 { font-size:1.05rem; margin-bottom:8px; }
+  .card p { color:#cbd5e1; font-size:.92rem; }
+  .card .tags { margin-top:12px; display:flex; flex-wrap:wrap; gap:6px; }
+  .tag { font-size:.75rem; color:var(--accent); border:1px solid rgba(56,189,248,.3); border-radius:6px; padding:2px 8px; }
+  .card .more { display:inline-block; margin-top:12px; font-weight:600; }
+  footer { padding:28px 0 48px; color:var(--muted); font-size:.85rem; }
+  @media (max-width:600px){ .hero h1{font-size:2rem;} .viewer{height:60vh;} }
 </style>
 </head>
 <body>
-  <header>
-    <h1>Shamsiddin Nabiev</h1>
-    <span class="role">Senior Software Engineer · Java / Real-Time Data</span>
-    <nav>
-      <a href="https://www.linkedin.com/in/nshamsiddin">LinkedIn</a>
-      <a href="https://github.com/nshamsiddin">GitHub</a>
-      <a class="dl" href="resume.pdf" download>Download PDF</a>
-    </nav>
-  </header>
-  <iframe class="viewer" src="resume.pdf" title="Resume of Shamsiddin Nabiev"></iframe>
-  <div class="gallery">
-    <span class="label">Layouts:</span>
-    <a href="resume.pdf">Classic</a>
-    <a href="resume-modern.pdf">Modern</a>
-    <a href="resume-minimal.pdf">Minimal</a>
-    <a href="resume-compact.pdf">Compact</a>
+  <div class="wrap">
+
+    <header class="hero">
+      <h1>Shamsiddin Nabiev</h1>
+      <div class="title">Senior Software Engineer · Java / Real-Time Data</div>
+      <p>5+ years building real-time, cloud-native data platforms — Apache Flink stream processing
+         on AWS, with full-stack and observability depth. Based in Dublin, Ireland.</p>
+      <div class="actions">
+        <a class="btn primary" href="resume.pdf">Download résumé (PDF)</a>
+        <a class="btn" href="https://www.linkedin.com/in/nshamsiddin">LinkedIn</a>
+        <a class="btn" href="https://github.com/nshamsiddin">GitHub</a>
+        <a class="btn" href="mailto:shamsiddin@live.ru">Email</a>
+        <a class="btn" href="resume.json">resume.json</a>
+      </div>
+    </header>
+
+    <section id="resume">
+      <h2>Résumé</h2>
+      <div class="sub">Also available in other layouts:</div>
+      <div class="gallery">
+        <a class="chip" href="resume.pdf">Classic</a>
+        <a class="chip" href="resume-modern.pdf">Modern</a>
+        <a class="chip" href="resume-minimal.pdf">Minimal</a>
+        <a class="chip" href="resume-compact.pdf">Compact</a>
+      </div>
+      <iframe class="viewer" src="resume.pdf" title="Résumé of Shamsiddin Nabiev"></iframe>
+    </section>
+
+    <section id="work">
+      <h2>Selected work</h2>
+      <div class="sub">Verifiable, not just described — click through.</div>
+      <div class="cards">
+        <!-- Add more real projects as cards below (repo, demo, or writeup links). -->
+        <div class="card">
+          <h3>CV as Code</h3>
+          <p>This site and résumé: a LaTeX CV with a full CI/CD pipeline — content/template
+             separation, GitHub Actions build, one-page &amp; spell-check gates, a multi-template
+             gallery, machine-readable JSON, and auto-publish to GitHub Pages.</p>
+          <div class="tags">
+            <span class="tag">GitHub Actions</span><span class="tag">LaTeX</span>
+            <span class="tag">CI/CD</span><span class="tag">Pages</span>
+          </div>
+          <a class="more" href="https://github.com/nshamsiddin/cv">View repo →</a>
+        </div>
+        <div class="card">
+          <h3>More on GitHub</h3>
+          <p>Repositories, experiments, and contributions.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">Flink</span><span class="tag">TypeScript</span></div>
+          <a class="more" href="https://github.com/nshamsiddin">github.com/nshamsiddin →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Built automatically from <a href="https://github.com/nshamsiddin/cv">nshamsiddin/cv</a> ·
+      updates on every push.
+    </footer>
+
   </div>
-  <footer>Built automatically from <a href="https://github.com/nshamsiddin/cv">nshamsiddin/cv</a>.</footer>
 </body>
 </html>
