@@ -62,6 +62,16 @@ jobs:
         with:
           root_file: resume.tex
 
+      - name: Enforce one page
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+          n=$(pdfinfo resume.pdf | awk '/^Pages:/{print $2}')
+          echo "resume.pdf has $n page(s)"
+          if [ "$n" -gt 1 ]; then
+            echo "::error::Resume is $n pages — keep it to 1. Tighten content or use the 'compact' template."
+            exit 1
+          fi
+
       - name: Upload PDF as build artifact
         uses: actions/upload-artifact@v4
         with:

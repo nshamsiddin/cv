@@ -27,7 +27,16 @@
     font-weight: 600; text-decoration: none;
   }
   .dl:hover { background: #5cc9fb; text-decoration: none; }
-  .viewer { flex: 1; border: 0; width: 100%; min-height: 82vh; background: #fff; }
+  .viewer { flex: 1; border: 0; width: 100%; min-height: 78vh; background: #fff; }
+  .gallery {
+    padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    border-top: 1px solid rgba(255,255,255,.12); font-size: .85rem;
+  }
+  .gallery .label { color: #94a3b8; margin-right: 4px; }
+  .gallery a {
+    border: 1px solid rgba(124,199,245,.35); border-radius: 6px; padding: 4px 11px; color: #7cc7f5;
+  }
+  .gallery a:hover { background: rgba(56,189,248,.12); text-decoration: none; }
   footer { padding: 10px 24px; font-size: .8rem; color: #94a3b8; }
   footer a { color: #94a3b8; text-decoration: underline; }
 </style>
@@ -43,6 +52,13 @@
     </nav>
   </header>
   <iframe class="viewer" src="resume.pdf" title="Resume of Shamsiddin Nabiev"></iframe>
+  <div class="gallery">
+    <span class="label">Layouts:</span>
+    <a href="resume.pdf">Classic</a>
+    <a href="resume-modern.pdf">Modern</a>
+    <a href="resume-minimal.pdf">Minimal</a>
+    <a href="resume-compact.pdf">Compact</a>
+  </div>
   <footer>Built automatically from <a href="https://github.com/nshamsiddin/cv">nshamsiddin/cv</a>.</footer>
 </body>
 </html>

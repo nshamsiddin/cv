@@ -1,6 +1,16 @@
 # CV — Shamsiddin Nabiev
 
+[![View CV](https://img.shields.io/badge/View-CV-0b3d63?style=flat-square)](https://nshamsiddin.github.io/cv/)
+[![Build](https://github.com/nshamsiddin/cv/actions/workflows/build.yml/badge.svg)](https://github.com/nshamsiddin/cv/actions/workflows/build.yml)
+[![Pages](https://github.com/nshamsiddin/cv/actions/workflows/pages.yml/badge.svg)](https://nshamsiddin.github.io/cv/)
+
 Senior Software Engineer · Java / Real-Time Data · Dublin, Ireland
+
+**Live:** <https://nshamsiddin.github.io/cv/> — always the latest build.
+Layouts: [Classic](https://nshamsiddin.github.io/cv/resume.pdf) ·
+[Modern](https://nshamsiddin.github.io/cv/resume-modern.pdf) ·
+[Minimal](https://nshamsiddin.github.io/cv/resume-minimal.pdf) ·
+[Compact](https://nshamsiddin.github.io/cv/resume-compact.pdf)
 
 **Content and presentation are separated:**
 

@@ -24,15 +24,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Compile resume.tex -> resume.pdf
+      - name: Generate template variant sources
+        run: |
+          python3 - <<'PY'
+          import re
+          for t in ["modern", "minimal", "compact"]:
+              s = open("resume.tex").read()
+              s = re.sub(r'\\documentclass(\[[^\]]*\])?\{cv\}',
+                         r'\\documentclass[%s]{cv}' % t, s, count=1)
+              open("resume-%s.tex" % t, "w").write(s)
+          PY
+
+      - name: Compile default + all templates
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: resume.tex
+          root_file: |
+            resume.tex
+            resume-modern.tex
+            resume-minimal.tex
+            resume-compact.tex
 
       - name: Assemble site
         run: |
           mkdir -p site
-          cp resume.pdf site/resume.pdf
+          cp resume.pdf resume-modern.pdf resume-minimal.pdf resume-compact.pdf site/
           cp .github/pages/index.html site/index.html
 
       - name: Publish to gh-pages branch
