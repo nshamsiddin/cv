@@ -48,3 +48,12 @@ serverless
 microservices
 checkpointing
 throughput
+backend
+frontend
+observability
+stateful
+datacapture
+di
+github
+linkedin
+ru
