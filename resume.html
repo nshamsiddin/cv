@@ -16,38 +16,38 @@
   html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   body{
     font-family:"Inter",Arial,Helvetica,sans-serif;
-    color:var(--ink); background:#e9ebee; font-size:10pt; line-height:1.3;
+    color:var(--ink); background:#e9ebee; font-size:10pt; line-height:1.26;
   }
   .page{max-width:816px; margin:24px auto; background:#fff; padding:46px 56px 40px; box-shadow:0 2px 16px rgba(0,0,0,.12)}
 
-  header{border-bottom:2px solid var(--accent); padding-bottom:8px; margin-bottom:9px}
+  header{border-bottom:2px solid var(--accent); padding-bottom:6px; margin-bottom:7px}
   h1{font-size:24pt; font-weight:700; letter-spacing:.2px; color:var(--accent); line-height:1}
   .role{font-size:11pt; font-weight:600; color:var(--soft); margin-top:5px; letter-spacing:.2px}
   .contact{font-size:9.5pt; color:var(--soft); margin-top:9px}
   .contact a{color:var(--soft); text-decoration:none}
   .contact .sep{color:var(--rule); margin:0 7px}
-  .headline{font-size:9.8pt; color:var(--soft); margin-top:7px}
+  .headline{font-size:9.8pt; color:var(--soft); margin-top:5px}
   .headline b{color:var(--ink); font-weight:700}
 
-  section{margin-top:9px}
+  section{margin-top:6px}
   h2{font-size:10.3pt; font-weight:700; text-transform:uppercase; letter-spacing:1.6px;
      color:var(--accent); padding-bottom:3px; border-bottom:1px solid var(--rule); margin-bottom:7px}
 
-  .skills{display:grid; grid-template-columns:150px 1fr; row-gap:5px; column-gap:14px; font-size:9.8pt}
+  .skills{display:grid; grid-template-columns:150px 1fr; row-gap:4px; column-gap:14px; font-size:9.8pt}
   .skills .k{font-weight:700; color:var(--ink)}
   .skills .v{color:var(--soft)}
 
-  .job{margin-bottom:8px}
+  .job{margin-bottom:6px}
   .job:last-child{margin-bottom:0}
   .jtop{display:flex; justify-content:space-between; align-items:baseline; gap:16px}
   .jtitle{font-size:10.8pt; font-weight:700; color:var(--ink)}
   .jco{font-weight:600; color:var(--accent)}
   .jdate{font-size:9.3pt; color:var(--muted); white-space:nowrap; font-weight:500}
-  ul{margin:5px 0 0 17px}
-  li{margin:3px 0; color:var(--soft)}
+  ul{margin:4px 0 0 17px}
+  li{margin:2.2px 0; color:var(--soft)}
   li b{color:var(--ink); font-weight:600}
 
-  .row{display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin:3px 0}
+  .row{display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin:2px 0}
   .row .d{font-weight:700; color:var(--ink)}
   .row .s{color:var(--soft); font-weight:400}
   .inline{color:var(--soft)}
@@ -56,7 +56,7 @@
   @media print{
     body{background:#fff}
     .page{box-shadow:none; margin:0; max-width:none; padding:0}
-    @page{size:letter; margin:11mm 15mm}
+    @page{size:letter; margin:9mm 15mm}
   }
 </style>
 </head>
@@ -83,14 +83,16 @@
     <div class="skills">
       <div class="k">Languages</div>
       <div class="v">Java (expert), TypeScript / JavaScript, Python, SQL, Bash</div>
-      <div class="k">Streaming &amp; Backend</div>
-      <div class="v">Apache Flink, Amazon Kinesis, Spring Boot, Node.js, event-driven &amp; serverless architecture</div>
-      <div class="k">Cloud &amp; DevOps</div>
-      <div class="v">AWS, Docker, Jenkins, Spinnaker, CI/CD, Linux</div>
-      <div class="k">Observability &amp; Data</div>
-      <div class="v">OpenTelemetry, Dynatrace, MongoDB, Oracle SQL</div>
-      <div class="k">Frontend</div>
-      <div class="v">React, Svelte, TypeScript</div>
+      <div class="k">Streaming &amp; Messaging</div>
+      <div class="v">Apache Flink (Managed Flink / KDA), Apache Kafka (MSK), Amazon Kinesis, change-data-capture, event-driven &amp; serverless</div>
+      <div class="k">Backend</div>
+      <div class="v">Spring Boot, Node.js, DynamoDB, MongoDB, REST APIs</div>
+      <div class="k">Cloud &amp; Infra</div>
+      <div class="v">AWS, Terraform (IaC), Docker, Kubernetes, Jenkins, Spinnaker, CI/CD, Linux</div>
+      <div class="k">Observability</div>
+      <div class="v">OpenTelemetry, Dynatrace, distributed tracing, metrics</div>
+      <div class="k">Frontend &amp; Testing</div>
+      <div class="v">React, Svelte; JUnit 5, Mockito, JaCoCo</div>
     </div>
   </section>
 
@@ -103,7 +105,9 @@
         <div class="jdate">Apr 2026 &ndash; Present &middot; Dublin</div>
       </div>
       <ul>
-        <li>Design and operate <b>real-time stream-processing pipelines on Apache Flink</b> for Autodesk's cloud data platform (AWS), instrumented end to end with <b>OpenTelemetry and Dynatrace</b> for full-chain observability and faster incident diagnosis.</li>
+        <li>Design and operate <b>Apache Flink</b> streaming applications for a real-time <b>change-data-capture (CDC) data platform</b> on AWS (Managed Flink, <b>Kafka/MSK</b>, Kinesis), powering producer and consumer pipelines across the org.</li>
+        <li>Led <b>full-chain distributed tracing</b> with <b>OpenTelemetry and Dynatrace</b>, propagating trace context through Flink operators to close observability gaps and cut incident-diagnosis time.</li>
+        <li>Contribute reusable connectors, operators, and instrumentation to <b>shared Flink platform libraries</b> used across multiple producer/consumer applications.</li>
       </ul>
     </div>
 
@@ -113,10 +117,10 @@
         <div class="jdate">Dec 2021 &ndash; Apr 2026 &middot; Dublin</div>
       </div>
       <ul>
-        <li>Built high-performance, cloud-native services in <b>Java, TypeScript, and JavaScript</b>, developing <b>real-time data pipelines with Apache Flink and Amazon Kinesis</b> for scalable event processing.</li>
-        <li>Developed event-driven <b>Node.js</b> modules and <b>React</b> front-ends, emphasizing modular, maintainable code across the platform.</li>
-        <li>Owned deployment and <b>CI/CD</b> across AWS, Docker, Jenkins, and Spinnaker for streamlined, reliable releases.</li>
-        <li>Diagnosed and resolved production <b>performance issues</b>, improving reliability of high-throughput streaming workloads.</li>
+        <li>Built high-throughput streaming pipelines in <b>Java on Apache Flink</b>, integrating <b>Kafka (MSK)</b> and <b>Amazon Kinesis</b> for real-time change-data-capture and delivery.</li>
+        <li>Authored <b>Terraform</b> infrastructure-as-code for Managed Flink and Kafka; owned <b>CI/CD</b> via Jenkins, Spinnaker, Docker, and an internal Kubernetes platform.</li>
+        <li>Developed a <b>Spring Boot control-plane service</b> orchestrating Kafka resource provisioning (backed by DynamoDB), plus event-driven <b>Node.js</b> services and <b>React/TypeScript</b> front-ends.</li>
+        <li>Diagnosed and fixed production issues in <b>stateful streaming jobs</b> (serialization, checkpointing, performance); maintained rigorous test coverage with JUnit, Mockito, and JaCoCo.</li>
       </ul>
     </div>
 
