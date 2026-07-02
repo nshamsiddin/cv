@@ -15,8 +15,13 @@ on:
     branches: [main]
   workflow_dispatch:
     inputs:
+      template:
+        description: "Template / layout"
+        type: choice
+        default: classic
+        options: [classic, modern, minimal, compact]
       font:
-        description: "Font (overrides the class option in resume.tex for this build)"
+        description: "Font"
         type: choice
         default: lmodern
         options: [lmodern, charter, palatino, times, helvet, sourcesans, lato]
@@ -35,20 +40,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Apply font choice (manual runs only)
+      - name: Apply template + font choice (manual runs only)
         if: github.event_name == 'workflow_dispatch'
         env:
+          TEMPLATE: ${{ inputs.template }}
           FONT: ${{ inputs.font }}
         run: |
           python3 - <<'PY'
           import os, re
-          font = os.environ["FONT"]
+          opts = "%s,%s" % (os.environ["TEMPLATE"], os.environ["FONT"])
           src = open("resume.tex").read()
           src = re.sub(r'\\documentclass(\[[^\]]*\])?\{cv\}',
-                       r'\\documentclass[%s]{cv}' % font, src, count=1)
+                       r'\\documentclass[%s]{cv}' % opts, src, count=1)
           open("resume.tex", "w").write(src)
           PY
-          echo "Building with font: $FONT"
+          echo "Building with template+font: $TEMPLATE,$FONT"
           grep documentclass resume.tex
 
       - name: Compile resume.tex -> resume.pdf
@@ -59,7 +65,7 @@ jobs:
       - name: Upload PDF as build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: resume-${{ github.event_name == 'workflow_dispatch' && inputs.font || 'default' }}-pdf
+          name: resume-${{ github.event_name == 'workflow_dispatch' && format('{0}-{1}', inputs.template, inputs.font) || 'default' }}-pdf
           path: resume.pdf
           if-no-files-found: error
 

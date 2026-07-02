@@ -1,0 +1,18 @@
+% styles/minimal.tex — monochrome, understated, maximum ATS-safety.
+%   No accent color, plain links, a touch more air.
+
+% Neutralize color: accent -> ink (black), softer rule; black links
+\definecolor{accent}{HTML}{111418}
+\definecolor{rule}{HTML}{B4B4B4}
+\hypersetup{urlcolor=black, linkcolor=black}
+\geometry{margin=1.45cm}
+
+% Quiet header: role not bold
+\renewcommand{\name}[1]{{\Huge\bfseries #1}\\[3pt]}
+\renewcommand{\role}[1]{{\large #1}\\[5pt]}
+
+% Sections: small-caps bold over a hairline rule (no color)
+\titleformat{\section}{\normalsize\bfseries\scshape}{}{0em}{}%
+  [{\vspace{1pt}\color{rule}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\endinput

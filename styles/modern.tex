@@ -1,0 +1,13 @@
+% styles/modern.tex — contemporary tech look:
+%   dark name + accent role, UPPERCASE section headers with a full-width rule.
+%   Pairs well with a sans font, e.g. \documentclass[modern,sourcesans]{cv}
+
+% Name in ink (dark), role in accent
+\renewcommand{\name}[1]{{\Huge\bfseries #1}\\[3pt]}
+\renewcommand{\role}[1]{{\large\bfseries\color{accent}#1}\\[5pt]}
+
+% Sections: bold UPPERCASE accent title over a thin full-width rule
+\titleformat{\section}{\normalsize\bfseries\color{accent}}{}{0em}{\MakeUppercase}%
+  [{\vspace{1pt}\color{rule}\titlerule[0.8pt]}]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\endinput

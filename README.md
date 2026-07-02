@@ -11,9 +11,24 @@ Senior Software Engineer · Java / Real-Time Data · Dublin, Ireland
 
 The PDF is built automatically by GitHub Actions — you never edit or commit it by hand.
 
-### Change the font
+### Change the template and font
 
-The typeface is a **class option** on the first line of `resume.tex`:
+Both are **class options** on the first line of `resume.tex` — combine freely:
+
+```latex
+\documentclass[modern,sourcesans]{cv}   % template, font
+```
+
+**Templates** (all single-column and ATS-safe; each lives in `styles/<name>.tex`):
+
+| Option | Look |
+|--------|------|
+| `classic` | serif, small-caps section rules (default) |
+| `modern` | uppercase headers, full-width rules, airy tech look |
+| `minimal` | monochrome, understated, maximum ATS-safety |
+| `compact` | dense — smaller margins/spacing for content-heavy CVs |
+
+**Fonts:**
 
 ```latex
 \documentclass[charter]{cv}   % <- swap the option

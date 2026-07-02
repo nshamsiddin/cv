@@ -1,0 +1,15 @@
+% styles/compact.tex — dense layout for content-heavy CVs.
+%   Smaller margins and tighter spacing to fit more on one page.
+
+\geometry{margin=1cm}
+\titlespacing*{\section}{0pt}{5pt}{3pt}
+
+% Tighter bullet list
+\setlist[tight]{leftmargin=1.15em, topsep=1pt, partopsep=0pt, itemsep=1pt,
+  parsep=0pt, label=\textcolor{accent}{\small\textbullet}}
+
+% Tighter job header (no trailing vspace)
+\renewcommand{\job}[3]{%
+  \smallskip\noindent\textbf{#1}~\textcolor{accent}{\textbf{--- #2}}%
+  \hfill{\footnotesize\textcolor{muted}{#3}}\par}
+\endinput

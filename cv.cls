@@ -29,6 +29,20 @@
 \DeclareOption{helvet}{\renewcommand{\cv@font}{helvet}}
 \DeclareOption{sourcesans}{\renewcommand{\cv@font}{sourcesans}}
 \DeclareOption{lato}{\renewcommand{\cv@font}{lato}}
+
+% ---- Template selection ------------------------------------------------------
+% Pick the layout/design with a class option, e.g. \documentclass[modern]{cv}
+% Combine with a font, e.g. \documentclass[modern,sourcesans]{cv}
+%     classic   serif, small-caps section rules ...... (default)
+%     modern    uppercase headers, full-width rules, airy tech look
+%     minimal   monochrome, understated, maximum ATS-safety
+%     compact   dense — smaller margins/spacing for content-heavy CVs
+\newcommand{\cv@template}{classic}
+\DeclareOption{classic}{\renewcommand{\cv@template}{classic}}
+\DeclareOption{modern}{\renewcommand{\cv@template}{modern}}
+\DeclareOption{minimal}{\renewcommand{\cv@template}{minimal}}
+\DeclareOption{compact}{\renewcommand{\cv@template}{compact}}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 
@@ -116,3 +130,11 @@
   \hspace{0.3cm}%
   \begin{minipage}[t]{\dimexpr\linewidth-\skilllabel-0.3cm\relax}#2\end{minipage}%
   \par\vspace{3pt}}
+
+% ==============================================================================
+%  Everything above is the DEFAULT (classic) template. A template file may
+%  override any of it — colors, geometry, \section format, \name/\job/\skill,
+%  etc. — via \renewcommand / \titleformat / \geometry / \definecolor.
+%  Adding a template = add its option above + a styles/<name>.tex file.
+% ==============================================================================
+\input{styles/\cv@template.tex}
