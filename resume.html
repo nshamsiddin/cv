@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shamsiddin Nabiev — Senior Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* FAANG-style resume: single column, ATS-parseable, impact-first. */
+  :root{
+    --ink:#111418; --soft:#3f4650; --muted:#6b7280; --rule:#c9ced6; --accent:#0b3d63;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{
+    font-family:"Inter",Arial,Helvetica,sans-serif;
+    color:var(--ink); background:#e9ebee; font-size:10pt; line-height:1.3;
+  }
+  .page{max-width:816px; margin:24px auto; background:#fff; padding:46px 56px 40px; box-shadow:0 2px 16px rgba(0,0,0,.12)}
+
+  header{border-bottom:2px solid var(--accent); padding-bottom:8px; margin-bottom:9px}
+  h1{font-size:24pt; font-weight:700; letter-spacing:.2px; color:var(--accent); line-height:1}
+  .role{font-size:11pt; font-weight:600; color:var(--soft); margin-top:5px; letter-spacing:.2px}
+  .contact{font-size:9.5pt; color:var(--soft); margin-top:9px}
+  .contact a{color:var(--soft); text-decoration:none}
+  .contact .sep{color:var(--rule); margin:0 7px}
+  .headline{font-size:9.8pt; color:var(--soft); margin-top:7px}
+  .headline b{color:var(--ink); font-weight:700}
+
+  section{margin-top:9px}
+  h2{font-size:10.3pt; font-weight:700; text-transform:uppercase; letter-spacing:1.6px;
+     color:var(--accent); padding-bottom:3px; border-bottom:1px solid var(--rule); margin-bottom:7px}
+
+  .skills{display:grid; grid-template-columns:150px 1fr; row-gap:5px; column-gap:14px; font-size:9.8pt}
+  .skills .k{font-weight:700; color:var(--ink)}
+  .skills .v{color:var(--soft)}
+
+  .job{margin-bottom:8px}
+  .job:last-child{margin-bottom:0}
+  .jtop{display:flex; justify-content:space-between; align-items:baseline; gap:16px}
+  .jtitle{font-size:10.8pt; font-weight:700; color:var(--ink)}
+  .jco{font-weight:600; color:var(--accent)}
+  .jdate{font-size:9.3pt; color:var(--muted); white-space:nowrap; font-weight:500}
+  ul{margin:5px 0 0 17px}
+  li{margin:3px 0; color:var(--soft)}
+  li b{color:var(--ink); font-weight:600}
+
+  .row{display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin:3px 0}
+  .row .d{font-weight:700; color:var(--ink)}
+  .row .s{color:var(--soft); font-weight:400}
+  .inline{color:var(--soft)}
+  .inline b{color:var(--ink); font-weight:600}
+
+  @media print{
+    body{background:#fff}
+    .page{box-shadow:none; margin:0; max-width:none; padding:0}
+    @page{size:letter; margin:11mm 15mm}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Shamsiddin Nabiev</h1>
+    <div class="role">Senior Software Engineer &middot; Java / Real-Time Data</div>
+    <div class="contact">
+      <a href="mailto:shamsiddin@live.ru">shamsiddin@live.ru</a>
+      <span class="sep">|</span>
+      <a href="https://www.linkedin.com/in/nshamsiddin">linkedin.com/in/nshamsiddin</a>
+      <span class="sep">|</span>
+      <a href="https://github.com/nshamsiddin">github.com/nshamsiddin</a>
+      <span class="sep">|</span>
+      Dublin, Ireland
+    </div>
+    <div class="headline"><b>5+ years</b> building real-time, cloud-native data platforms &mdash; Apache Flink stream processing on AWS, with full-stack and observability depth. Two MSc degrees (Software Engineering, AI).</div>
+  </header>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="k">Languages</div>
+      <div class="v">Java (expert), TypeScript / JavaScript, Python, SQL, Bash</div>
+      <div class="k">Streaming &amp; Backend</div>
+      <div class="v">Apache Flink, Amazon Kinesis, Spring Boot, Node.js, event-driven &amp; serverless architecture</div>
+      <div class="k">Cloud &amp; DevOps</div>
+      <div class="v">AWS, Docker, Jenkins, Spinnaker, CI/CD, Linux</div>
+      <div class="k">Observability &amp; Data</div>
+      <div class="v">OpenTelemetry, Dynatrace, MongoDB, Oracle SQL</div>
+      <div class="k">Frontend</div>
+      <div class="v">React, Svelte, TypeScript</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="jtop">
+        <div class="jtitle">Senior Software Engineer <span class="jco">&mdash; Autodesk</span></div>
+        <div class="jdate">Apr 2026 &ndash; Present &middot; Dublin</div>
+      </div>
+      <ul>
+        <li>Design and operate <b>real-time stream-processing pipelines on Apache Flink</b> for Autodesk's cloud data platform (AWS), instrumented end to end with <b>OpenTelemetry and Dynatrace</b> for full-chain observability and faster incident diagnosis.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jtop">
+        <div class="jtitle">Software Development Engineer <span class="jco">&mdash; Autodesk</span></div>
+        <div class="jdate">Dec 2021 &ndash; Apr 2026 &middot; Dublin</div>
+      </div>
+      <ul>
+        <li>Built high-performance, cloud-native services in <b>Java, TypeScript, and JavaScript</b>, developing <b>real-time data pipelines with Apache Flink and Amazon Kinesis</b> for scalable event processing.</li>
+        <li>Developed event-driven <b>Node.js</b> modules and <b>React</b> front-ends, emphasizing modular, maintainable code across the platform.</li>
+        <li>Owned deployment and <b>CI/CD</b> across AWS, Docker, Jenkins, and Spinnaker for streamlined, reliable releases.</li>
+        <li>Diagnosed and resolved production <b>performance issues</b>, improving reliability of high-throughput streaming workloads.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jtop">
+        <div class="jtitle">Software Engineer Intern <span class="jco">&mdash; Autodesk</span></div>
+        <div class="jdate">Mar 2021 &ndash; Nov 2021 &middot; Dublin</div>
+      </div>
+      <ul>
+        <li>Built full-stack features with <b>Java, Spring Boot, Node.js, React, and Svelte</b>; created modular Node.js services and used Docker and Jenkins for streamlined delivery.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jtop">
+        <div class="jtitle">Software Developer <span class="jco">&mdash; VEON</span></div>
+        <div class="jdate">Aug 2018 &ndash; Aug 2019 &middot; Tashkent</div>
+      </div>
+      <ul>
+        <li>Built <b>microservices and full-stack applications</b> with Node.js, Spring Boot, and MongoDB, collaborating cross-functionally on design, implementation, and integration.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="jtop">
+        <div class="jtitle">Data Platforms &amp; Billing Systems <span class="jco">&mdash; VEON</span></div>
+        <div class="jdate">Nov 2015 &ndash; Jul 2018 &middot; Tashkent</div>
+      </div>
+      <ul>
+        <li>Delivered and supported <b>big-data analytics and targeted-marketing platforms</b>; administered mission-critical <b>billing systems</b> with Bash, SQL, Perl, Python, and Oracle SQL on Linux, automating tasks and resolving performance issues.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="row">
+      <div class="d">MSc, Computer Software Engineering <span class="s">&mdash; Maynooth University</span></div>
+      <div class="jdate">2020 &ndash; 2021</div>
+    </div>
+    <div class="row">
+      <div class="d">MSc, Artificial Intelligence <span class="s">&mdash; University of St Andrews</span></div>
+      <div class="jdate">2019 &ndash; 2020</div>
+    </div>
+    <div class="row">
+      <div class="d">BSc, Computer Engineering <span class="s">&mdash; Politecnico di Torino</span></div>
+      <div class="jdate">2011 &ndash; 2015</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <p class="inline">Russian (native) &middot; Uzbek (native) &middot; English (professional working) &middot; Turkish (basic)</p>
+  </section>
+
+</div>
+</body>
+</html>
