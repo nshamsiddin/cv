@@ -2,8 +2,14 @@
 
 Senior Software Engineer · Java / Real-Time Data · Dublin, Ireland
 
-**Source of truth: [`resume.tex`](resume.tex).** The PDF is built automatically by GitHub
-Actions — you only ever edit the LaTeX.
+**Content and presentation are separated:**
+
+| File | Role | Edit it when… |
+|------|------|---------------|
+| [`resume.tex`](resume.tex) | **Content (data)** — pure `\job{}{}{}`, `\skill{}{}`, `\edu{}{}{}` calls, no styling | you change what the resume *says* |
+| [`cv.cls`](cv.cls) | **Template** — all layout, colors, fonts, spacing, and the semantic commands | you change how it *looks* |
+
+The PDF is built automatically by GitHub Actions — you never edit or commit it by hand.
 
 ## Workflow
 

@@ -1,87 +1,27 @@
 %==============================================================================
-%  Shamsiddin Nabiev — Resume (single-column, ATS-friendly)
-%  Compiles with pdfLaTeX (GitHub Actions / latex-action) and tectonic.
-%  No fontawesome / no external .cls — only standard TeX Live packages.
-%  Source uses ASCII LaTeX commands only (---, \textperiodcentered) so it
-%  builds identically under pdfLaTeX and XeTeX.
+%  resume.tex — CONTENT ONLY (the "data").
+%  All styling/layout lives in cv.cls. To restyle, edit cv.cls; to change what
+%  the resume says, edit only this file. Build: `tectonic resume.tex` (or CI).
 %==============================================================================
-\documentclass[letterpaper,10pt]{article}
-
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage[margin=1.35cm]{geometry}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{xcolor}
-\usepackage{tabularx}
-\usepackage{hyperref}
-
-% ---- Colors ------------------------------------------------------------------
-\definecolor{ink}{HTML}{111418}
-\definecolor{accent}{HTML}{0B3D63}
-\definecolor{muted}{HTML}{6B7280}
-\definecolor{rule}{HTML}{C9CED6}
-\color{ink}
-
-\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent,
-  pdftitle={Shamsiddin Nabiev -- Senior Software Engineer}, pdfauthor={Shamsiddin Nabiev}}
-
-% ---- Layout ------------------------------------------------------------------
-\pagestyle{empty}
-\setlength{\parindent}{0pt}
-\linespread{1.03}
-\newcommand{\dt}{\textcolor{rule}{\ \textbar\ }}          % contact separator
-\newcommand{\md}{\,\textperiodcentered\,}                  % middot
-
-% Section headings: bold small-caps + accent rule
-\titleformat{\section}{\normalsize\bfseries\scshape\color{accent}}
-  {}{0em}{}[\vspace{1pt}{\color{rule}\titlerule[1pt]}]
-\titlespacing*{\section}{0pt}{7pt}{4pt}
-
-\newlist{tight}{itemize}{1}
-\setlist[tight]{leftmargin=1.25em, topsep=2pt, partopsep=0pt, itemsep=2pt,
-  parsep=0pt, label=\textcolor{accent}{\small$\bullet$}}
-
-% Experience entry: bold role -- accent company, right-aligned muted dates
-\newcommand{\job}[3]{%
-  \smallskip\noindent\textbf{#1}~\textcolor{accent}{\textbf{--- #2}}%
-  \hfill{\footnotesize\textcolor{muted}{#3}}\par\vspace{1pt}}
-
-% Education row: bold degree -- school, right-aligned dates
-\newcommand{\edu}[3]{%
-  \noindent\textbf{#1} \textcolor{ink}{--- #2}%
-  \hfill{\footnotesize\textcolor{muted}{#3}}\par\vspace{2pt}}
-
-%==============================================================================
+\documentclass{cv}
 \begin{document}
 
 % ---- Header ------------------------------------------------------------------
-{\Huge\bfseries\color{accent}Shamsiddin Nabiev}\\[3pt]
-{\large\bfseries\color{ink!80}Senior Software Engineer \textperiodcentered\ Java / Real-Time Data}\\[5pt]
-\small
-\href{mailto:shamsiddin@live.ru}{shamsiddin@live.ru}\dt
-\href{https://www.linkedin.com/in/nshamsiddin}{linkedin.com/in/nshamsiddin}\dt
-\href{https://github.com/nshamsiddin}{github.com/nshamsiddin}\dt
-Dublin, Ireland
-\\[4pt]
-\textbf{5+ years} building real-time, cloud-native data platforms --- Apache Flink stream
-processing on AWS, with full-stack and observability depth. Two MSc degrees (Software
-Engineering, AI).
-\normalsize
-\vspace{2pt}
-{\color{accent}\hrule height 1.5pt}
+\name{Shamsiddin Nabiev}
+\role{Senior Software Engineer \textperiodcentered\ Java / Real-Time Data}
+\contact{shamsiddin@live.ru}{linkedin.com/in/nshamsiddin}{github.com/nshamsiddin}{Dublin, Ireland}
+\headline{\textbf{5+ years} building real-time, cloud-native data platforms --- Apache Flink
+  stream processing on AWS, with full-stack and observability depth. Two MSc degrees
+  (Software Engineering, AI).}
 
 % ---- Skills ------------------------------------------------------------------
 \section{Skills}
-\begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\hspace{0pt}}p{3.5cm} X@{}}
-  Languages            & Java (expert), TypeScript / JavaScript, Python, SQL, Bash \\[2pt]
-  Streaming \& Messaging & Apache Flink (Managed Flink / KDA), Apache Kafka (MSK), Amazon Kinesis, change-data-capture, event-driven \& serverless \\[2pt]
-  Backend              & Spring Boot, Node.js, DynamoDB, MongoDB, REST APIs \\[2pt]
-  Cloud \& Infra        & AWS, Terraform (IaC), Docker, Kubernetes, Jenkins, Spinnaker, CI/CD, Linux \\[2pt]
-  Observability        & OpenTelemetry, Dynatrace, distributed tracing, metrics \\[2pt]
-  Frontend \& Testing   & React, Svelte; JUnit 5, Mockito, JaCoCo \\
-\end{tabularx}
+\skill{Languages}{Java (expert), TypeScript / JavaScript, Python, SQL, Bash}
+\skill{Streaming \& Messaging}{Apache Flink (Managed Flink / KDA), Apache Kafka (MSK), Amazon Kinesis, change-data-capture, event-driven \& serverless}
+\skill{Backend}{Spring Boot, Node.js, DynamoDB, MongoDB, REST APIs}
+\skill{Cloud \& Infra}{AWS, Terraform (IaC), Docker, Kubernetes, Jenkins, Spinnaker, CI/CD, Linux}
+\skill{Observability}{OpenTelemetry, Dynatrace, distributed tracing, metrics}
+\skill{Frontend \& Testing}{React, Svelte; JUnit 5, Mockito, JaCoCo}
 
 % ---- Experience --------------------------------------------------------------
 \section{Experience}
